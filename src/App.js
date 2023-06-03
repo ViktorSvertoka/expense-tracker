@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import NewCost from "./components/NewCost/NewCost";
-import Costs from "./components/Costs/Costs";
+import React, { useState } from 'react';
+import NewCost from './components/NewCost/NewCost';
+import Costs from './components/Costs/Costs';
 
 const INITIAL_COSTS = [
   {
-    id: "c1",
-    date: new Date(2020, 2, 12),
-    description: "Холодильник",
+    id: 'c1',
+    date: new Date(2022, 2, 12),
+    description: 'Холодильник',
     amount: 999.99,
   },
   {
-    id: "c2",
-    date: new Date(2021, 11, 25),
-    description: "MacBook",
+    id: 'c2',
+    date: new Date(2023, 2, 6),
+    description: 'MacBook',
     amount: 1254.72,
   },
   {
-    id: "c3",
+    id: 'c3',
     date: new Date(2021, 3, 1),
-    description: "Джинсы",
+    description: 'Джинсы',
     amount: 49.99,
   },
 ];
@@ -33,8 +33,8 @@ const App = () => {
   //   React.createElement(Costs, { costs: costs })
   // );
 
-  const addCostHandler = (cost) => {
-    setCosts((prevCosts) => {
+  const addCostHandler = cost => {
+    setCosts(prevCosts => {
       return [cost, ...prevCosts];
     });
   };
