@@ -1,48 +1,24 @@
-import React, { useState } from "react";
-import "./CostForm.css";
+import React, { useState } from 'react';
+import './CostForm.css';
 
-const CostForm = (props) => {
-  const [inputName, setInputName] = useState("");
-  const [inputAmount, setInputAmount] = useState("");
-  const [inputDate, setInputDate] = useState("");
+const CostForm = props => {
+  const [inputName, setInputName] = useState('');
+  const [inputAmount, setInputAmount] = useState('');
+  const [inputDate, setInputDate] = useState('');
 
-  //   const [userInput, setUserInput] = useState({
-  //     name: "",
-  //     amount: "",
-  //     date: "",
-  //   });
-
-  const nameChangeHandler = (event) => {
+  const nameChangeHandler = event => {
     setInputName(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   name: event.target.value,
-    // });
-    // setUserInput((previousState) => {
-    //     return {
-    //         ...previousState,
-    //         name: event.target.value
-    //     }
-    // })
   };
 
-  const amountChangeHandler = (event) => {
+  const amountChangeHandler = event => {
     setInputAmount(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   amount: event.target.value,
-    // });
   };
 
-  const dateChangeHandler = (event) => {
+  const dateChangeHandler = event => {
     setInputDate(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   date: event.target.value,
-    // });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = event => {
     event.preventDefault();
 
     const costData = {
@@ -52,20 +28,20 @@ const CostForm = (props) => {
     };
 
     props.onSaveCostData(costData);
-    setInputName("");
-    setInputAmount("");
-    setInputDate("");
+    setInputName('');
+    setInputAmount('');
+    setInputDate('');
   };
 
   return (
     <form onSubmit={submitHandler}>
       <div className="new-cost__controls">
         <div className="new-cost__control">
-          <label>Название</label>
+          <label>Name</label>
           <input type="text" value={inputName} onChange={nameChangeHandler} />
         </div>
         <div className="new-cost__control">
-          <label>Сумма</label>
+          <label>Sum</label>
           <input
             value={inputAmount}
             onChange={amountChangeHandler}
@@ -75,7 +51,7 @@ const CostForm = (props) => {
           />
         </div>
         <div className="new-cost__control">
-          <label>Дата</label>
+          <label>Date</label>
           <input
             value={inputDate}
             onChange={dateChangeHandler}
@@ -85,9 +61,9 @@ const CostForm = (props) => {
           />
         </div>
         <div className="new-cost__actions">
-          <button type="submit">Добавить Расход</button>
+          <button type="submit">Add Expense</button>
           <button type="button" onClick={props.onCancel}>
-            Отмена
+            Cancel
           </button>
         </div>
       </div>

@@ -1,9 +1,10 @@
-import "./CostDate.css";
+import './CostDate.css';
 
-const CostDate = (props) => {
-  const month = props.date.toLocaleString("ru-RU", { month: "long" });
-  const year = props.date.getFullYear();
-  const day = props.date.toLocaleString("ru-RU", { day: "2-digit" });
+const CostDate = props => {
+  const date = new Date(props.date);
+  const month = date.toLocaleString('en-US', { month: 'long' });
+  const year = date.getFullYear();
+  const day = date.toLocaleString('en-US', { day: '2-digit' });
 
   return (
     <div className="cost-date">
