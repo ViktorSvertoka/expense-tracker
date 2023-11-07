@@ -1,41 +1,22 @@
-import React, { useState } from 'react';
 import NewCost from './components/NewCost/NewCost';
 import Costs from './components/Costs/Costs';
-
-const INITIAL_COSTS = [
-  {
-    id: 'c1',
-    date: new Date(2022, 2, 12),
-    description: 'Холодильник',
-    amount: 999.99,
-  },
-  {
-    id: 'c2',
-    date: new Date(2023, 2, 6),
-    description: 'MacBook',
-    amount: 1254.72,
-  },
-  {
-    id: 'c3',
-    date: new Date(2021, 3, 1),
-    description: 'Джинсы',
-    amount: 49.99,
-  },
-];
+import { useDispatch, useSelector } from 'react-redux';
+import { selectExpenseParams } from './redux/selector';
+import { addExpense } from './redux/expenseSlice';
 
 const App = () => {
-  const [costs, setCosts] = useState(INITIAL_COSTS);
+  const expenseParams = useSelector(selectExpenseParams);
+
+  const dispatch = useDispatch();
 
   const addCostHandler = cost => {
-    setCosts(prevCosts => {
-      return [cost, ...prevCosts];
-    });
+    dispatch(addExpense(cost));
   };
 
   return (
     <div>
       <NewCost onAddCost={addCostHandler} />
-      <Costs costs={costs} />
+      <Costs costs={expenseParams} />
     </div>
   );
 };

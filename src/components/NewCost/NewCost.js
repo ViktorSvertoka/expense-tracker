@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import CostForm from "./CostForm";
-import "./NewCost.css";
+import React, { useState } from 'react';
+import CostForm from './CostForm';
+import './NewCost.css';
 
-const NewCost = (props) => {
+const NewCost = props => {
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-  const saveCostDataHandler = (inputCostData) => {
+  const saveCostDataHandler = inputCostData => {
     const costData = {
       ...inputCostData,
       id: Math.random().toString(),
@@ -26,7 +26,7 @@ const NewCost = (props) => {
   return (
     <div className="new-cost">
       {!isFormVisible && (
-        <button onClick={inputCostDataHandler}>Добавить Новый Расход</button>
+        <button onClick={inputCostDataHandler}>Add New Expense</button>
       )}
       {isFormVisible && (
         <CostForm

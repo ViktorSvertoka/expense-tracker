@@ -13,7 +13,8 @@ const Costs = props => {
   };
 
   const filteredCosts = props.costs.filter(cost => {
-    return cost.date.getFullYear().toString() === selectedYear;
+    const costDate = new Date(cost.date);
+    return costDate.getFullYear().toString() === selectedYear;
   });
 
   return (
